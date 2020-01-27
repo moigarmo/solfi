@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-select-panel-wrap.ng-trigger.ng-trigger-transformPanelWrap.ng-star-inserted {
+  width: 240px;
+}
+
+.filter-option {
+  padding: 0 0 0 13px;
+  width: fit-content;
+  > .mat-pseudo-checkbox {
+    display: none !important;
+  }
+}

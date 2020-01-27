@@ -1,0 +1,5 @@
+<app-menu #menu></app-menu>
+<app-controls></app-controls>
+<div [class.hidden]="menu.isShown" class="staves-wrap">  
+  <app-staff [staffConfig]="staffConfig" *ngFor="let staff of staves"></app-staff>
+</div>

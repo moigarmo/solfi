@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+
+:host {
+  display: grid;
+  margin: auto;
+  width: 70%;
+
+  app-menu {
+    text-align: center;
+  }
+
+  .staves-wrap {
+    display: grid;
+    overflow-y: auto;
+    height: 75vh;
+    margin-top: 5px;    
+  
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    @media screen and (max-width: $breakpoint) {
+      &.hidden {
+        visibility: hidden;
+      }
+      
+  
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+      margin: 10px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: $color-primary;
+    }
+
+    app-staff {
+      overflow: hidden;
+      height: 200px;
+    }
+  }
+
+  app-controls {
+    text-align: center;
+  }
+
+}
+
+

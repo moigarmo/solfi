@@ -1,0 +1,49 @@
+<div class="menuTrigger" [class.change]="isShown" (click)="menuTriggerClick()">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+<form [class.closed]="!isShown" [class.opened]="isShown">
+
+  <mat-form-field>
+    <mat-label>Clef</mat-label>
+    <mat-select name="clef" [(ngModel)]="staffMode" (selectionChange)="onStaffModeSelectionChange()">
+      <mat-option  *ngFor="let clef of displayStaffModes" [value]="clef.id">{{ clef.label }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Notes</mat-label>
+    <mat-select multiple name="notes" [(ngModel)]="selectedNotes" 
+                (openedChange)="onSelectedNotesOpenedChange($event)" #notesSelect>
+        <mat-option disabled="disabled" class="filter-option">
+          <button mat-raised-button class="mat-primary fill text-sm treble-button"  
+            (click)="toggleSelection(notesSelect, 'trebleClef', ['staff-line-half-bottom', 'staff-line-half-top'])">
+            <img src="/assets/icons/treble-clef.png">
+          </button>
+          <button mat-raised-button class="mat-primary fill text-sm treble-button"  
+            (click)="toggleSelection(notesSelect, 'trebleClef', ['upper-ledger-line'])">
+            <img src="/assets/icons/treble-clef.png"><span>+</span>
+          </button>
+          <button mat-raised-button class="mat-primary fill text-sm bass-button"  
+            (click)="toggleSelection(notesSelect, 'bassClef', ['staff-line-half-bottom', 'staff-line-half-top'])">
+            <img src="/assets/icons/bass-clef.png">
+          </button>
+          <button mat-raised-button class="mat-primary fill text-sm bass-button"  
+            (click)="toggleSelection(notesSelect, 'bassClef', ['lower-ledger-line'])">
+            <img src="/assets/icons/bass-clef.png"><span>-</span>
+          </button>
+        </mat-option>
+      <mat-option *ngFor="let note of displayNotes" [value]="note.name">{{ note.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>B.P.M</mat-label>
+    <input matInput type="number" name="bpm" [(ngModel)]="bpm" min="1" (blur)="onBpmBlur()"/>
+  </mat-form-field>
+
+  <mat-checkbox (change)="onEnableSoundChange($event.checked)" color="primary">Sound</mat-checkbox>
+
+</form>

@@ -1,0 +1,14 @@
+@import "../../variables.scss";
+
+.button {
+  display: block;
+  cursor: pointer;
+  background-color: $color-primary;
+  height: 30px;
+  line-height: 30px;
+
+  &.hidden {
+    display: none;
+  }
+}
+
