@@ -36,7 +36,6 @@ export class MenuComponent implements OnInit {
   }
 
   toggleSelection(notesSelect: MatSelect, clef: 'trebleClef' | 'bassClef', zones: NoteZone[]) {
-    console.log(this);
     notesSelect.options.filter(opt => !opt.disabled)
                        .filter(opt => {
                           const note = this.displayNotes.find(note => note.name === opt.value);
