@@ -22,6 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+            "buildOptimizer": false,
             "aot": false,
             "assets": [
               "src/favicon.ico",
@@ -43,7 +44,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -125,5 +125,8 @@
         }
       }
     }},
-  "defaultProject": "solfi"
+  "defaultProject": "solfi",
+  "cli": {
+    "analytics": false
+  }
 }
